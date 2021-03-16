@@ -5,7 +5,7 @@ except:
 import pandas as pd
 import logging
 import time
-import urllib
+import urllib.request
 import numpy as np
 import copy
 
@@ -176,7 +176,10 @@ class BWQuery:
         '''
         if self._fields is None:
             q = {'database': self.json['database'],
-                 'method': 'returnPossibleFields'}
+                 'method': 'returnPossibleFields'}#,
+#                 'format': 'json',
+#                 'counttype': self.counttype,
+#                 'groups': self.groups}
             obj = self._fetch(q)
             df = pd.DataFrame(obj)
             self._fields = df
@@ -243,7 +246,7 @@ class BWQuery:
         start = time.time()
         qurl = "%s?queryTerms=%s" % (self.endpoint, jsonlib.dumps(query))
         try:
-            f = urllib.urlopen(qurl)
+            f = urllib.request.urlopen(qurl)
             response = jsonlob.loads(f.read())
         except:
             # Python 3, being lazy here
@@ -327,7 +330,11 @@ class BWResults:
     
     def tolist(self):
         ''' Return a list of key value pairs for each count'''
-        return self._expand(self._json, self.groups, self.counttype)
+#        logging.debug(self._json)
+        if 'data' in self._json:
+            return self._expand(self._json['data'], self.groups, self.counttype)
+        else:
+            return self._expand(self._json, self.groups, self.counttype)
     
     def _expand(self, o, grouplist, counttypes, collector=[]):
         '''
@@ -335,6 +342,8 @@ class BWResults:
         facets
         '''
         new_coll = []
+#        logging.debug(o)
+#        logging.debug(type(o))
         if len(grouplist) == 0:
             l = []
             for i, val in enumerate(o):
