@@ -289,9 +289,9 @@ class BWResults:
                     
         # Drop unknown values
         if drop_unknowns:
-            blacklist = ["No place, unknown, or undetermined", "", " ", "Unknown",
+            blacklist = ["No place, unknown, or undetermined", "", " ", "Unknown", "unknown",
              "Unknown or not specified", "No attempt to code", "Undetermined", "|||",
-             "???", "N/A", "unk"]
+             "???", "N/A", "und", "unk"]
             df = df[~df.T.isin(blacklist).any()]
         
         # Set index
