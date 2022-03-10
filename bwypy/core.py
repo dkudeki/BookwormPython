@@ -567,7 +567,7 @@ class BWResults:
             "esk": "Eskimo languages (Discontinued Code)",
             "kin": "Kinyarwanda",
             "mni": "Manipuri",
-            "xho": "Xhosa".
+            "xho": "Xhosa",
             "ssa": "Nilo-Saharan (Other)",
             "aym": "Aymara",
             "ful": "Fula",
