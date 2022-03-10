@@ -296,7 +296,7 @@ class BWResults:
 
         with pd.option_context('display.max_rows',None,'display.max_columns',None):
             print(df)
-        df = df.rename({
+        df = df.replace({df.columns[3]: {
             "http://id.loc.gov/vocabulary/marcgt/bib": "bibliography",
             "http://id.loc.gov/vocabulary/marcgt/gov": "government publication",
             "http://id.loc.gov/vocabulary/marcgt/fic": "fiction",
@@ -614,7 +614,7 @@ class BWResults:
             "http://id.loc.gov/ontologies/bibframe/MixedMaterial": "MixedMaterial",
             "http://id.loc.gov/ontologies/bibframe/StillImage": "StillImage",
             "http://id.loc.gov/ontologies/bibframe/Audio": "Audio"
-            })
+            }})
         with pd.option_context('display.max_rows',None,'display.max_columns',None):
             print(df)
         
