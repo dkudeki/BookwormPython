@@ -294,7 +294,7 @@ class BWResults:
              "???", "N/A", "und", "unk"]
             df = df[~df.T.isin(blacklist).any()]
 
-        df.rename({
+        df = df.rename({
             "http://id.loc.gov/vocabulary/marcgt/bib": "bibliography",
             "http://id.loc.gov/vocabulary/marcgt/gov": "government publication",
             "http://id.loc.gov/vocabulary/marcgt/fic": "fiction",
