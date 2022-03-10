@@ -294,6 +294,8 @@ class BWResults:
              "???", "N/A", "und", "unk"]
             df = df[~df.T.isin(blacklist).any()]
 
+        with pd.option_context('display.max_rows',None,'display.max_columns',None):
+            print(df)
         df = df.rename({
             "http://id.loc.gov/vocabulary/marcgt/bib": "bibliography",
             "http://id.loc.gov/vocabulary/marcgt/gov": "government publication",
@@ -613,6 +615,8 @@ class BWResults:
             "http://id.loc.gov/ontologies/bibframe/StillImage": "StillImage",
             "http://id.loc.gov/ontologies/bibframe/Audio": "Audio"
             })
+        with pd.option_context('display.max_rows',None,'display.max_columns',None):
+            print(df)
         
         # Set index
         if len(self.groups) > 0 and index:
