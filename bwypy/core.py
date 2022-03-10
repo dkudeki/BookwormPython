@@ -629,7 +629,7 @@ class BWResults:
             if facet_key in df.columns:
                 replace_columns[facet_key] = map_to_human_readable[facet_key]
         print(replace_columns)
-        if(len(replace_columns > 0)):
+        if replace_columns:
             df = df.replace(replace_columns)
             with pd.option_context('display.max_rows',None,'display.max_columns',None):
                 print(df)
