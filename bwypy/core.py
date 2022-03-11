@@ -294,11 +294,8 @@ class BWResults:
              "???", "N/A", "und", "unk"]
             df = df[~df.T.isin(blacklist).any()]
 
-        with pd.option_context('display.max_rows',None,'display.max_columns',None):
-            print(df)
-
         map_to_human_readable = {
-            "genres__id": {
+            "genres": {
                 "http://id.loc.gov/vocabulary/marcgt/bib": "bibliography",
                 "http://id.loc.gov/vocabulary/marcgt/gov": "government publication",
                 "http://id.loc.gov/vocabulary/marcgt/fic": "fiction",
@@ -580,7 +577,7 @@ class BWResults:
                 "dum": "Dutch, Middle (ca. 1050-1350)",
                 "tar": "Tatar (Discontinued Code)"
             },
-            "digitization_agent_code__id": {
+            "digitization_agent_code": {
                 "google": "Google (google)",
                 "ia": "Internet Archive (ia)",
                 "lit-dlps-dc": "Library IT, Digital Library Production Service, Digital Conversion (lit-dlps-dc)",
@@ -613,7 +610,7 @@ class BWResults:
                 "chtanc": "National Central Library of Taiwan (chtanc)",
                 "uq": "The University of Queensland (uq)"
             },
-            "format__id": {
+            "format": {
                 "http://id.loc.gov/ontologies/bibframe/Text": "Text",
                 "http://id.loc.gov/ontologies/bibframe/NotatedMusic": "NotatedMusic",
                 "http://id.loc.gov/ontologies/bibframe/Cartography": "Cartography",
@@ -625,14 +622,13 @@ class BWResults:
             }
         }
         replace_columns = {}
+        print(df.columns)
         for facet_key in map_to_human_readable.keys():
             if facet_key in df.columns:
                 replace_columns[facet_key] = map_to_human_readable[facet_key]
-        print(replace_columns)
+
         if replace_columns:
             df = df.replace(replace_columns)
-            with pd.option_context('display.max_rows',None,'display.max_columns',None):
-                print(df)
         
         # Set index
         if len(self.groups) > 0 and index:
