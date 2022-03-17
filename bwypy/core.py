@@ -681,7 +681,7 @@ class BWResults:
                 "UCSB": "University of California, Santa Barbara (UCSB)",
                 "UMLAW": "UMLAW",
                 "MDU": "University of Maryland (MDU)",
-                "WAU": "University of Washington (WAU)"
+                "WAU": "University of Washington (WAU)",
                 "UMBUS": "UMBUS",
                 "IUCLA": "University of California, Los Angeles (IUCLA)",
                 "LEBAU": "American University of Beirut (LEBAU)",
