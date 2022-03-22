@@ -8,6 +8,7 @@ import time
 import urllib.request
 import numpy as np
 import copy
+import os
 
 from collections import defaultdict
 _globals = defaultdict(lambda: None)
