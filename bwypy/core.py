@@ -295,9 +295,8 @@ class BWResults:
              "???", "N/A", "und", "unk"]
             df = df[~df.T.isin(blacklist).any()]
 
-        logging.info(os.listdir())
-        with open('./map_to_human_readable.json','r') as map_to_human_readable_file:
-            map_to_human_readable = jsonlib.load(map_to_human_readable_file)
+#        with open('./map_to_human_readable.json','r') as map_to_human_readable_file:
+#            map_to_human_readable = jsonlib.load(map_to_human_readable_file)
 
         replace_columns = {}
         print(df.columns)
