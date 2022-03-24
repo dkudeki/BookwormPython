@@ -298,14 +298,14 @@ class BWResults:
 #        with open('./map_to_human_readable.json','r') as map_to_human_readable_file:
 #            map_to_human_readable = jsonlib.load(map_to_human_readable_file)
 
-        replace_columns = {}
-        print(df.columns)
-        for facet_key in map_to_human_readable.keys():
-            if facet_key in df.columns:
-                replace_columns[facet_key] = map_to_human_readable[facet_key]
+#        replace_columns = {}
+#        print(df.columns)
+#        for facet_key in map_to_human_readable.keys():
+#            if facet_key in df.columns:
+#                replace_columns[facet_key] = map_to_human_readable[facet_key]
 
-        if replace_columns:
-            df = df.replace(replace_columns)
+#        if replace_columns:
+#            df = df.replace(replace_columns)
         
         # Set index
         if len(self.groups) > 0 and index:
